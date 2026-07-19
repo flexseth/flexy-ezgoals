@@ -9,6 +9,8 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Register custom REST API endpoints for goals.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_register_rest_routes() {
 	register_rest_route(
@@ -55,11 +57,20 @@ function flexy_ezgoals_register_rest_routes() {
 		)
 	);
 }
+
+/**
+ * Fires when the REST API is initialized.
+ *
+ * @since 0.1.0
+ */
 add_action( 'rest_api_init', 'flexy_ezgoals_register_rest_routes' );
 
 /**
  * Permission callback for REST endpoints.
+ *
  * User must be able to edit the post.
+ *
+ * @since 0.1.0
  *
  * @param WP_REST_Request $request Request object.
  * @return bool True if user has permission.
@@ -76,6 +87,8 @@ function flexy_ezgoals_rest_permission_check( $request ) {
 
 /**
  * REST callback: Get goals for a post.
+ *
+ * @since 0.1.0
  *
  * @param WP_REST_Request $request Request object.
  * @return WP_REST_Response|WP_Error Response object.
@@ -104,6 +117,8 @@ function flexy_ezgoals_rest_get_goals( $request ) {
 
 /**
  * REST callback: Save goals for a post.
+ *
+ * @since 0.1.0
  *
  * @param WP_REST_Request $request Request object.
  * @return WP_REST_Response|WP_Error Response object.

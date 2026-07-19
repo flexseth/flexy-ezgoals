@@ -9,7 +9,10 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Register goal block type.
+ *
  * Runs after npm run build has created build/goal-block/.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_register_block() {
 	$block_path = FLEXY_EZGOALS_PATH . 'build/goal-block';
@@ -19,11 +22,20 @@ function flexy_ezgoals_register_block() {
 		register_block_type( $block_path );
 	}
 }
+
+/**
+ * Fires during WordPress initialization.
+ *
+ * @since 0.1.0
+ */
 add_action( 'init', 'flexy_ezgoals_register_block' );
 
 /**
  * Enqueue front-end styles.
+ *
  * Only loads when post has goals.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_enqueue_frontend_styles() {
 	if ( ! is_singular() ) {
@@ -53,10 +65,18 @@ function flexy_ezgoals_enqueue_frontend_styles() {
 	// Add inline CSS for custom colors.
 	flexy_ezgoals_add_inline_color_styles();
 }
+
+/**
+ * Fires when scripts and styles are enqueued for the front-end.
+ *
+ * @since 0.1.0
+ */
 add_action( 'wp_enqueue_scripts', 'flexy_ezgoals_enqueue_frontend_styles' );
 
 /**
  * Add inline CSS for custom color scheme.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_add_inline_color_styles() {
 	$colors = get_option(

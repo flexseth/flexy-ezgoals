@@ -10,6 +10,8 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Inject goal callout above post content on front-end.
  *
+ * @since 0.1.0
+ *
  * @param string $content Post content.
  * @return string Modified content with goal callout prepended.
  */
@@ -29,10 +31,19 @@ function flexy_ezgoals_inject_goal_callout( $content ) {
 
 	return $callout_html . $content;
 }
+/**
+ * Filters the content to inject goal callout.
+ *
+ * @since 0.1.0
+ *
+ * @param string $content Post content.
+ */
 add_filter( 'the_content', 'flexy_ezgoals_inject_goal_callout', 10 );
 
 /**
  * Render goal callout HTML.
+ *
+ * @since 0.1.0
  *
  * @param array $goals Array of goal objects.
  * @return string HTML output.
@@ -102,6 +113,8 @@ function flexy_ezgoals_render_callout( $goals ) {
 /**
  * Get human-readable urgency label.
  *
+ * @since 0.1.0
+ *
  * @param string $urgency_class Urgency class.
  * @return string Translated label.
  */
@@ -119,6 +132,8 @@ function flexy_ezgoals_get_urgency_label( $urgency_class ) {
 /**
  * Get human-readable goal type label.
  *
+ * @since 0.1.0
+ *
  * @param string $type Goal type.
  * @return string Translated label.
  */
@@ -135,6 +150,8 @@ function flexy_ezgoals_get_type_label( $type ) {
 
 /**
  * Calculate contrasting text color (black or white) for a given background color.
+ *
+ * @since 0.1.0
  *
  * @param string $hex_color Background color in hex format.
  * @return string '#000000' or '#ffffff'.

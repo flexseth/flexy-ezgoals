@@ -147,6 +147,30 @@ flexy-ezgoals/
 - ✅ Accessibility (WCAG AA)
 - ✅ Security (nonces, capability checks, sanitization, escaping)
 
+### Plugin Check Expected Warnings
+
+The following Plugin Check warnings are expected and documented as architectural decisions:
+
+#### WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+**File:** `includes/caching.php:27`
+
+**Why acceptable:**
+- Query runs **once daily** via WP-Cron (not on page load)
+- Results cached in transients for 24 hours
+- Uses `meta_key` with `EXISTS` - most efficient way to find posts with goals
+- Optimized with `'fields' => 'ids'` (only returns post IDs)
+- **Performance impact:** Negligible
+
+#### hidden_files (.gitignore, .distignore)
+- Development files excluded from distribution via `.distignore`
+- Standard WordPress.org practice
+
+#### unexpected_markdown_file (TODO.md)
+- Development tracking file
+- Excluded from distribution via `.distignore`
+
+**Plugin Check Status:** ✅ 0 Errors | ⚠️ 3 Expected Warnings (all documented above)
+
 ## Roadmap
 
 ### Future Enhancements

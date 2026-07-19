@@ -164,7 +164,6 @@ function flexy_ezgoals_render_settings_page() {
 	}
 
 	// Show update message.
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Settings API handles nonce verification.
 	if ( isset( $_GET['settings-updated'] ) ) {
 		add_settings_error(
 			'flexy_ezgoals_messages',

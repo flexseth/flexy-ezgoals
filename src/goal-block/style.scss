@@ -1,0 +1,253 @@
+/**
+ * Goal Block Styles
+ *
+ * Styles for both editor and front-end.
+ */
+
+/* Editor Placeholder */
+.ezgoals-block-placeholder {
+	padding: 1rem;
+	background: #f7f7f7;
+	border: 2px dashed #ddd;
+	border-radius: 4px;
+	text-align: center;
+	margin-bottom: 1rem;
+
+	p {
+		margin: 0;
+		font-size: 0.9rem;
+		color: #666;
+	}
+}
+
+/* Editor Preview */
+.ezgoals-editor-preview {
+	margin-top: 1rem;
+
+	.ezgoals-preview-label {
+		font-size: 0.875rem;
+		color: #666;
+		margin-bottom: 0.75rem;
+		padding: 0.5rem;
+		background: #f0f0f0;
+		border-radius: 4px;
+	}
+}
+
+/* Sidebar Panel Styles */
+.ezgoals-panel {
+	.ezgoals-add-form {
+		padding: 1rem 0;
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 1rem;
+
+		.components-base-control {
+			margin-bottom: 1rem;
+		}
+
+		.ezgoals-deadline-picker {
+			margin-bottom: 1rem;
+
+			label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 600;
+			}
+		}
+	}
+
+	.ezgoals-list {
+		h3 {
+			font-size: 0.875rem;
+			text-transform: uppercase;
+			color: #666;
+			margin-top: 1.5rem;
+			margin-bottom: 0.75rem;
+		}
+
+		.ezgoals-empty {
+			color: #666;
+			font-style: italic;
+			padding: 1rem;
+			text-align: center;
+		}
+
+		.ezgoals-list-item {
+			padding: 1rem;
+			background: #f7f7f7;
+			border-radius: 4px;
+			margin-bottom: 0.75rem;
+
+			&.ezgoals-completed {
+				opacity: 0.6;
+			}
+
+			.ezgoals-list-item-header {
+				margin-bottom: 0.5rem;
+
+				strong {
+					font-size: 0.9rem;
+				}
+			}
+
+			.ezgoals-list-item-meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-bottom: 0.75rem;
+				font-size: 0.8rem;
+				color: #666;
+
+				.ezgoals-type {
+					padding: 0.25rem 0.5rem;
+					background: #fff;
+					border-radius: 3px;
+				}
+			}
+
+			.ezgoals-list-item-actions {
+				display: flex;
+				gap: 0.5rem;
+			}
+		}
+	}
+}
+
+/* Front-end Goal Callout Styles */
+.ezgoals-callout-container {
+	margin: 2rem 0;
+
+	.ezgoals-callout {
+		padding: 1.5rem;
+		border-radius: 8px;
+		margin-bottom: 1rem;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		transition: transform 0.2s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+		}
+
+		.ezgoals-callout-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1rem;
+			padding-bottom: 0.75rem;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+			.ezgoals-type {
+				font-weight: 600;
+				font-size: 0.9rem;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			.ezgoals-urgency {
+				font-size: 0.85rem;
+				font-weight: 500;
+				padding: 0.25rem 0.75rem;
+				background: rgba(255, 255, 255, 0.3);
+				border-radius: 12px;
+			}
+		}
+
+		.ezgoals-callout-body {
+			.ezgoals-label {
+				font-size: 1.1rem;
+				font-weight: 500;
+				margin: 0 0 0.75rem 0;
+			}
+
+			.ezgoals-deadline {
+				font-size: 0.9rem;
+				margin: 0;
+				opacity: 0.9;
+
+				strong {
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+	/* Default urgency colors (can be overridden by inline styles from settings) */
+	.ezgoals-callout-plenty-time {
+		background-color: #9e9e9e;
+		color: #ffffff;
+	}
+
+	.ezgoals-callout-moderate {
+		background-color: #2196f3;
+		color: #ffffff;
+	}
+
+	.ezgoals-callout-approaching {
+		background-color: #ffeb3b;
+		color: #000000;
+	}
+
+	.ezgoals-callout-due-soon {
+		background-color: #ff9800;
+		color: #ffffff;
+	}
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.ezgoals-callout-container {
+		.ezgoals-callout {
+			padding: 1rem;
+
+			.ezgoals-callout-header {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.5rem;
+			}
+
+			.ezgoals-callout-body {
+				.ezgoals-label {
+					font-size: 1rem;
+				}
+
+				.ezgoals-deadline {
+					font-size: 0.85rem;
+				}
+			}
+		}
+	}
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+	.ezgoals-block-placeholder {
+		background: #1e1e1e;
+		border-color: #333;
+		color: #fff;
+
+		.ezgoals-block-placeholder-note {
+			color: #aaa;
+		}
+	}
+
+	.ezgoals-panel {
+		.ezgoals-list {
+			h3 {
+				color: #aaa;
+			}
+
+			.ezgoals-list-item {
+				background: #1e1e1e;
+
+				.ezgoals-list-item-meta {
+					color: #aaa;
+
+					.ezgoals-type {
+						background: #2a2a2a;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"name": "flexy-ezgoals",
+	"version": "0.1.0",
+	"description": "Add goals to WordPress posts with deadline tracking and color-coded urgency indicators",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip"
+	},
+	"keywords": [
+		"wordpress",
+		"gutenberg",
+		"block",
+		"goals",
+		"deadlines",
+		"productivity"
+	],
+	"author": "seth@flexperception.com",
+	"license": "GPL-2.0-or-later",
+	"devDependencies": {
+		"@wordpress/scripts": "^30.0.0"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^15.0.0",
+		"@wordpress/blocks": "^13.0.0",
+		"@wordpress/components": "^29.0.0",
+		"@wordpress/data": "^10.0.0",
+		"@wordpress/editor": "^14.0.0",
+		"@wordpress/element": "^6.0.0",
+		"@wordpress/i18n": "^5.0.0",
+		"@wordpress/plugins": "^7.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yourusername/flexy-ezgoals.git"
+	},
+	"bugs": {
+		"url": "https://github.com/yourusername/flexy-ezgoals/issues"
+	}
+}

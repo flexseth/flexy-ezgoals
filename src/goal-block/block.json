@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "flexy-ezgoals/goal-block",
+	"version": "0.1.0",
+	"title": "Goal Block",
+	"category": "widgets",
+	"icon": "flag",
+	"description": "Add and manage goals with deadline tracking",
+	"keywords": [
+		"goal",
+		"deadline",
+		"tracking",
+		"productivity"
+	],
+	"supports": {
+		"html": false,
+		"multiple": false
+	},
+	"textdomain": "flexy-ezgoals",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

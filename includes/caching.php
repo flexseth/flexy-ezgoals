@@ -17,6 +17,7 @@ function flexy_ezgoals_rebuild_due_cache() {
 	$week_out = gmdate( 'Y-m-d', strtotime( '+7 days', current_time( 'timestamp' ) ) );
 
 	// Query posts that have goals meta (optimize scan surface).
+	// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Required to find posts with goals; results are cached daily.
 	$posts_with_goals = get_posts(
 		array(
 			'post_type'      => array( 'post', 'page' ),

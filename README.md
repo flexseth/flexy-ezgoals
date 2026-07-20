@@ -147,6 +147,36 @@ flexy-ezgoals/
 - ✅ Accessibility (WCAG AA)
 - ✅ Security (nonces, capability checks, sanitization, escaping)
 
+### Plugin Check Expected Warnings
+
+**Note:** Plugin Check warnings (severity < 7) do NOT block WordPress.org submission. The Plugin Check team designed it this way to allow for false positives ([GitHub Issue #479](https://github.com/WordPress/plugin-check/issues/479)).
+
+#### WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+**File:** `includes/caching.php:27`  
+**Status:** ⚠️ WARNING (not a blocker)
+
+**Why this follows WordPress best practices:**
+- ✅ Query runs **once daily** via WP-Cron (not on page load) - [WP-Cron Docs](https://developer.wordpress.org/plugins/cron/)
+- ✅ Results cached using **Transients API** (24-hour expiration) - [Official Pattern](https://developer.wordpress.org/apis/transients/)
+- ✅ Uses `'fields' => 'ids'` optimization - [Recommended in WP 6.1](https://make.wordpress.org/core/2022/10/07/improvements-to-wp_query-performance-in-6-1/)
+- ✅ Cache invalidation on content changes - Required best practice
+- ✅ No performance impact on site visitors - Query never runs on page load
+
+**Official WordPress guidance:**
+> "Transients are ideal for caching 'long/expensive database queries or complex processed data' that can noticeably improve site load times." - [WordPress Transients API Handbook](https://developer.wordpress.org/apis/transients/)
+
+**Performance impact:** Zero impact on visitors (background process + cached)
+
+#### hidden_files (.gitignore, .distignore)
+- Development files excluded from distribution via `.distignore`
+- Standard WordPress.org practice
+
+#### unexpected_markdown_file (TODO.md)
+- Development tracking file
+- Excluded from distribution via `.distignore`
+
+**Plugin Check Status:** ✅ 0 Errors | ⚠️ 3 Expected Warnings (all documented above)
+
 ## Roadmap
 
 ### Future Enhancements

@@ -6,7 +6,7 @@
  * Version:           0.1.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
- * Tested up to:      6.7
+ * Tested up to:      7.0
  * Author:            seth@flexperception.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -31,15 +31,8 @@ require_once FLEXY_EZGOALS_PATH . 'includes/settings.php';
 require_once FLEXY_EZGOALS_PATH . 'includes/enqueue.php';
 
 /**
- * Load text domain for internationalization.
- */
-function flexy_ezgoals_load_textdomain() {
-	load_plugin_textdomain( 'flexy-ezgoals', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-}
-add_action( 'init', 'flexy_ezgoals_load_textdomain' );
-
-/**
  * Activation hook: Set up default settings and schedule cron.
+ *
  * Idempotent - safe to run multiple times.
  */
 function flexy_ezgoals_activate() {

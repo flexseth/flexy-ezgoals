@@ -9,7 +9,10 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Register custom post meta for goals.
+ *
  * Goals are stored as a serialized array in _ezgoals_goals meta key.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_register_post_meta() {
 	register_post_meta(
@@ -26,10 +29,18 @@ function flexy_ezgoals_register_post_meta() {
 		)
 	);
 }
+
+/**
+ * Fires when registering custom post meta.
+ *
+ * @since 0.1.0
+ */
 add_action( 'init', 'flexy_ezgoals_register_post_meta' );
 
 /**
  * Get goals for a post.
+ *
+ * @since 0.1.0
  *
  * @param int $post_id Post ID.
  * @return array Array of goal objects.
@@ -41,6 +52,8 @@ function flexy_ezgoals_get_goals( $post_id ) {
 
 /**
  * Save goals for a post.
+ *
+ * @since 0.1.0
  *
  * @param int   $post_id Post ID.
  * @param array $goals   Array of goal objects.
@@ -78,6 +91,8 @@ function flexy_ezgoals_save_goals( $post_id, $goals ) {
 /**
  * Check if a goal deadline is approaching and return urgency level.
  *
+ * @since 0.1.0
+ *
  * @param string $deadline ISO 8601 date string.
  * @return string Urgency class: 'plenty-time', 'moderate', 'approaching', 'due-soon'.
  */
@@ -110,6 +125,8 @@ function flexy_ezgoals_is_due_soon( $deadline ) {
 
 /**
  * Get active (non-completed) goals for a post.
+ *
+ * @since 0.1.0
  *
  * @param int $post_id Post ID.
  * @return array Array of active goal objects.

@@ -1,7 +1,9 @@
 # features to introduce
   - styles - easily change the formatting of the goals
-  - click to edit - clicking the block brings up `Posts` in the Plugin Sidebar
+  - ~~click to edit - clicking the block brings up `Posts` in the Plugin Sidebar~~ 
+    - Note: ❌ WordPress doesn't support programmatically opening/scrolling to specific PluginDocumentSettingPanel
   - standardize - update Doc Blocks, add actions
+  - settings - more settings for controls
 
 # standardization
 

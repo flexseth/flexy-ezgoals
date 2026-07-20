@@ -32,15 +32,25 @@ require_once FLEXY_EZGOALS_PATH . 'includes/enqueue.php';
 
 /**
  * Load text domain for internationalization.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_load_textdomain() {
 	load_plugin_textdomain( 'flexy-ezgoals', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
+/**
+ * Fires during WordPress initialization.
+ *
+ * @since 0.1.0
+ */
 add_action( 'init', 'flexy_ezgoals_load_textdomain' );
 
 /**
  * Activation hook: Set up default settings and schedule cron.
+ *
  * Idempotent - safe to run multiple times.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_activate() {
 	// Add default settings if they don't exist.
@@ -68,7 +78,10 @@ register_activation_hook( __FILE__, 'flexy_ezgoals_activate' );
 
 /**
  * Deactivation hook: Clean up scheduled tasks.
+ *
  * Do NOT delete user data.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_deactivate() {
 	$timestamp = wp_next_scheduled( 'flexy_ezgoals_daily_cache_rebuild' );

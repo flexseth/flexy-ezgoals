@@ -9,7 +9,10 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Daily cron callback: Rebuild due goals cache.
+ *
  * Scans all posts and builds a transient of post IDs with due goals.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_rebuild_due_cache() {
 	$today    = current_time( 'Y-m-d' );
@@ -60,11 +63,20 @@ function flexy_ezgoals_rebuild_due_cache() {
 	set_transient( 'ezgoals_due_posts_soon', array_unique( $due_soon ), DAY_IN_SECONDS );
 	set_transient( 'ezgoals_due_posts_week', array_unique( $due_this_week ), DAY_IN_SECONDS );
 }
+
+/**
+ * Fires on the daily cron event to rebuild goal cache.
+ *
+ * @since 0.1.0
+ */
 add_action( 'flexy_ezgoals_daily_cache_rebuild', 'flexy_ezgoals_rebuild_due_cache' );
 
 /**
  * Clear goal caches.
+ *
  * Called when goals are updated to ensure fresh data.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_clear_cache() {
 	delete_transient( 'ezgoals_due_posts_today' );
@@ -74,6 +86,8 @@ function flexy_ezgoals_clear_cache() {
 
 /**
  * Get cached list of posts with goals due today.
+ *
+ * @since 0.1.0
  *
  * @return array Array of post IDs.
  */
@@ -92,6 +106,8 @@ function flexy_ezgoals_get_due_posts_today() {
 /**
  * Get cached list of posts with goals due soon (next 1-2 days).
  *
+ * @since 0.1.0
+ *
  * @return array Array of post IDs.
  */
 function flexy_ezgoals_get_due_posts_soon() {
@@ -107,6 +123,8 @@ function flexy_ezgoals_get_due_posts_soon() {
 
 /**
  * Get cached list of posts with goals due this week.
+ *
+ * @since 0.1.0
  *
  * @return array Array of post IDs.
  */

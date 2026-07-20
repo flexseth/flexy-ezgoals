@@ -9,6 +9,8 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Register settings via Settings API.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_register_settings() {
 	register_setting(
@@ -62,10 +64,18 @@ function flexy_ezgoals_register_settings() {
 		array( 'field' => 'due_soon' )
 	);
 }
+
+/**
+ * Fires when the admin area is initialized.
+ *
+ * @since 0.1.0
+ */
 add_action( 'admin_init', 'flexy_ezgoals_register_settings' );
 
 /**
  * Sanitize color settings.
+ *
+ * @since 0.1.0
  *
  * @param array $input Raw input from form.
  * @return array Sanitized colors.
@@ -87,6 +97,8 @@ function flexy_ezgoals_sanitize_colors( $input ) {
 
 /**
  * Render section description.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_render_colors_section_description() {
 	echo '<p>' . esc_html__( 'Customize the background colors for goal urgency levels. Colors should have good contrast for readability.', 'flexy-ezgoals' ) . '</p>';
@@ -94,6 +106,8 @@ function flexy_ezgoals_render_colors_section_description() {
 
 /**
  * Render color picker field.
+ *
+ * @since 0.1.0
  *
  * @param array $args Field arguments.
  */
@@ -119,6 +133,8 @@ function flexy_ezgoals_render_color_field( $args ) {
 
 /**
  * Add settings page to admin menu.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_add_settings_page() {
 	add_options_page(
@@ -129,10 +145,18 @@ function flexy_ezgoals_add_settings_page() {
 		'flexy_ezgoals_render_settings_page'
 	);
 }
+
+/**
+ * Fires when the admin menu is being set up.
+ *
+ * @since 0.1.0
+ */
 add_action( 'admin_menu', 'flexy_ezgoals_add_settings_page' );
 
 /**
  * Render settings page.
+ *
+ * @since 0.1.0
  */
 function flexy_ezgoals_render_settings_page() {
 	if ( ! current_user_can( 'manage_options' ) ) {
@@ -167,6 +191,8 @@ function flexy_ezgoals_render_settings_page() {
 /**
  * Enqueue color picker assets on settings page.
  *
+ * @since 0.1.0
+ *
  * @param string $hook_suffix Current admin page hook.
  */
 function flexy_ezgoals_enqueue_settings_assets( $hook_suffix ) {
@@ -184,4 +210,10 @@ function flexy_ezgoals_enqueue_settings_assets( $hook_suffix ) {
 		'jQuery(document).ready(function($) { $(".flexy-ezgoals-color-picker").wpColorPicker(); });'
 	);
 }
+
+/**
+ * Fires when enqueueing scripts for admin pages.
+ *
+ * @since 0.1.0
+ */
 add_action( 'admin_enqueue_scripts', 'flexy_ezgoals_enqueue_settings_assets' );

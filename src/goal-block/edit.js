@@ -465,7 +465,7 @@ export default function Edit() {
 			<div className="ezgoals-block-placeholder">
 				<p>
 					{ __(
-						'🎯 Manage goals in the sidebar panel (Post tab) →',
+						'Edit Goals in the Post section of the sidebar',
 						'flexy-ezgoals'
 					) }
 				</p>
